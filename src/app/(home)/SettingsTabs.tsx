@@ -1,9 +1,8 @@
 'use client'
 
-import * as Tabs from '@radix-ui/react-tabs'
-
-import { TabItem } from './TabItem'
 import { useState } from 'react'
+import { TabItem } from '@/components/TabItem'
+import * as Tabs from '@radix-ui/react-tabs'
 
 export function SettingsTabs() {
   const [currentTab, setCurrentTab] = useState<string>('tab1')
@@ -12,7 +11,7 @@ export function SettingsTabs() {
     <Tabs.Root
       value={currentTab}
       onValueChange={setCurrentTab}
-      className="max-w-full overflow-x-scroll"
+      className="max-w-full overflow-x-auto"
     >
       <Tabs.List className="mt-6 flex w-full items-center gap-4 border-b border-zinc-200">
         <TabItem
