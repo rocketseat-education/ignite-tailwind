@@ -25,14 +25,14 @@ export function ImagePreview(props: ImagePreviewProps) {
 
   if (previewURL === null) {
     return (
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-violet-50">
-        <User className="h-8 w-8 text-violet-500" />
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-violet-50 dark:bg-zinc-800">
+        <User className="h-8 w-8 text-violet-500 dark:text-violet-300" />
       </div>
     )
   } else {
     return (
       <img
-        className="h-16 w-16 rounded-full bg-violet-50 object-cover"
+        className="h-16 w-16 rounded-full bg-violet-50 object-cover dark:bg-zinc-800"
         src={previewURL}
         alt=""
       />

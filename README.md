@@ -1,6 +1,6 @@
 # To-do
 
-- [ ] Responsive
+- [x] Responsive
 - [ ] Dark Theme
 - [ ] Label trigger all inputs
 - [ ] Animations
