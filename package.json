@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-scroll-area": "1.0.4",
+    "@radix-ui/react-select": "1.2.2",
     "@radix-ui/react-slot": "1.0.2",
     "@radix-ui/react-tabs": "1.0.4",
     "cva": "npm:class-variance-authority@0.6.0",
@@ -17,6 +19,7 @@
     "next": "13.4.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-world-flags": "1.5.1",
     "tailwind-merge": "1.13.2"
   },
   "devDependencies": {
@@ -25,6 +28,7 @@
     "@types/node": "20.3.0",
     "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
+    "@types/react-world-flags": "1.4.2",
     "autoprefixer": "10.4.14",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",

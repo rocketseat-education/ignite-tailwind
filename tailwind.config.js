@@ -17,6 +17,10 @@ module.exports = {
       },
 
       colors: {
+        violet: {
+          25: '#FCFAFF',
+        },
+
         error: {
           25: '#FFFBFA',
           50: '#FEF3F2',

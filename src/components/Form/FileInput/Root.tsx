@@ -30,7 +30,7 @@ export function Root({ multiple = false, ...props }: RootProps) {
     <FileInputContext.Provider
       value={{ id, files, multiple, onFilesSelected: setFiles }}
     >
-      <div {...props} className={twMerge('w-full', props.className)} />
+      <div {...props} className={twMerge('group w-full', props.className)} />
     </FileInputContext.Provider>
   )
 }

@@ -1,8 +1,11 @@
 import * as Input from '@/components/Form/Input'
 import * as FileInput from '@/components/Form/FileInput'
-import { Mail } from 'lucide-react'
+import * as Select from '@/components/Form/Select'
+import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { SettingsTabs } from './SettingsTabs'
+import { CountrySelect } from './CountrySelect'
+import { Textarea } from '@/components/Form/Textarea'
 
 export default function Home() {
   return (
@@ -117,7 +120,8 @@ export default function Home() {
           >
             Country
           </label>
-          <div className="flex gap-3"></div>
+
+          <CountrySelect />
         </div>
 
         <div className="grid grid-cols-form gap-3 pt-5">
@@ -127,7 +131,20 @@ export default function Home() {
           >
             Timezone
           </label>
-          <div className="flex gap-3"></div>
+          <Select.Root>
+            <Select.Trigger>
+              <Select.Value placeholder="Select your timezone..." />
+            </Select.Trigger>
+
+            <Select.Content>
+              <Select.Item value="utc-3">
+                <Select.ItemText>
+                  Pacific Standard Time (PST)
+                  <span className="text-sm text-zinc-500">UTC 08:00</span>
+                </Select.ItemText>
+              </Select.Item>
+            </Select.Content>
+          </Select.Root>
         </div>
 
         <div className="grid grid-cols-form gap-3 pt-5">
@@ -140,7 +157,61 @@ export default function Home() {
               Write a short introduction.
             </span>
           </label>
-          <div className="flex gap-3"></div>
+          <div className="flex flex-col gap-3">
+            <div className="grid grid-cols-2 gap-3">
+              <Select.Root defaultValue="normal">
+                <Select.Trigger>
+                  <Select.Value />
+                </Select.Trigger>
+
+                <Select.Content>
+                  <Select.Item value="normal">
+                    <Select.ItemText>Normal text</Select.ItemText>
+                  </Select.Item>
+                  <Select.Item value="md">
+                    <Select.ItemText>Markdown</Select.ItemText>
+                  </Select.Item>
+                </Select.Content>
+              </Select.Root>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  className="rounded-lg p-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  <Bold className="h-4 w-4 text-zinc-400" />
+                </button>
+                <button
+                  type="button"
+                  className="rounded-lg p-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  <Italic className="h-4 w-4 text-zinc-400" />
+                </button>
+                <button
+                  type="button"
+                  className="rounded-lg p-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  <Link className="h-4 w-4 text-zinc-400" />
+                </button>
+                <button
+                  type="button"
+                  className="rounded-lg p-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  <List className="h-4 w-4 text-zinc-400" />
+                </button>
+                <button
+                  type="button"
+                  className="rounded-lg p-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  <ListOrdered className="h-4 w-4 text-zinc-400" />
+                </button>
+              </div>
+            </div>
+            <Textarea
+              name="bio"
+              id="bio"
+              defaultValue="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development."
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-form gap-3 pt-5">
