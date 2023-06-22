@@ -13,14 +13,14 @@
     "@radix-ui/react-select": "1.2.2",
     "@radix-ui/react-slot": "1.0.2",
     "@radix-ui/react-tabs": "1.0.4",
-    "cva": "npm:class-variance-authority@0.6.0",
     "framer-motion": "10.12.16",
     "lucide-react": "0.244.0",
     "next": "13.4.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-world-flags": "1.5.1",
-    "tailwind-merge": "1.13.2"
+    "tailwind-merge": "1.13.2",
+    "tailwind-variants": "0.1.8"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "1.2.0",

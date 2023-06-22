@@ -14,10 +14,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="relative grid min-h-screen lg:grid-cols-app">
+        <div className="relative min-h-screen lg:grid lg:grid-cols-app">
           <Sidebar />
 
-          <main className="col-start-2 px-8 pb-12 pt-8">{children}</main>
+          <main className="w-screen px-4 pb-12 pt-8 lg:col-start-2 lg:w-auto lg:px-8">
+            {children}
+          </main>
         </div>
       </body>
     </html>

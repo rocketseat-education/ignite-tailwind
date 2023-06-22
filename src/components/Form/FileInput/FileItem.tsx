@@ -1,23 +1,31 @@
-import { VariantProps, cva } from 'cva'
+import { Button } from '@/components/Button'
 import { CheckCircle2, Image as ImageIcon, Trash2 } from 'lucide-react'
 import { useMemo } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { tv, VariantProps } from 'tailwind-variants'
 
-const fileItem = cva(
-  'group flex items-start gap-4 rounded-lg border border-zinc-200 p-4',
-  {
-    variants: {
-      state: {
-        progress: {},
-        complete: 'border-violet-500',
-        error: 'bg-error-25 border-error-300',
+const fileItem = tv({
+  slots: {
+    base: 'group flex items-start gap-4 rounded-lg border border-zinc-200 p-4',
+    icon: 'relative rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600',
+    deleteButton: 'text-zinc-500 hover:text-violet-500',
+  },
+  variants: {
+    state: {
+      progress: {},
+      complete: {
+        base: 'border-violet-500',
+      },
+      error: {
+        base: 'bg-error-25 border-error-300',
+        icon: 'border-error-50 bg-error-100 text-error-600',
+        deleteButton: 'text-error-700 hover:text-error-900',
       },
     },
-    defaultVariants: {
-      state: 'progress',
-    },
   },
-)
+  defaultVariants: {
+    state: 'progress',
+  },
+})
 
 export interface FileItemProps extends VariantProps<typeof fileItem> {
   name: string
@@ -40,15 +48,12 @@ export function FileItem({ state, name, size, type }: FileItemProps) {
     return fileSizeInKB.toFixed(1).concat(' KB')
   }, [size])
 
+  const { base, icon, deleteButton } = fileItem({ state })
+
   return (
-    <div data-state={state} className={fileItem({ state })}>
-      <span
-        className={twMerge(
-          'relative rounded-full border-4 border-violet-100 bg-violet-200 p-2',
-          'group-data-[state=error]:border-error-50 group-data-[state=error]:bg-error-100',
-        )}
-      >
-        <ImageIcon className="h-4 w-4 text-violet-600 group-data-[state=error]:text-error-600" />
+    <div className={base()}>
+      <span className={icon()}>
+        <ImageIcon className="h-4 w-4" />
       </span>
 
       {state === 'error' ? (
@@ -91,15 +96,9 @@ export function FileItem({ state, name, size, type }: FileItemProps) {
       {state === 'complete' ? (
         <CheckCircle2 className="h-5 w-5 fill-violet-600 text-white" />
       ) : (
-        <button
-          type="button"
-          className={twMerge(
-            'text-zinc-500  hover:text-violet-500 ',
-            'group-data-[state=error]:text-error-700 group-data-[state=error]:hover:text-error-900',
-          )}
-        >
+        <Button type="button" variant="ghost" className={deleteButton()}>
           <Trash2 className="h-5 w-5" />
-        </button>
+        </Button>
       )}
     </div>
   )

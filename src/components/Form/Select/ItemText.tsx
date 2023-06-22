@@ -10,7 +10,9 @@ export interface ItemTextProps extends ComponentProps<typeof Select.ItemText> {
 export function ItemText({ children }: ItemTextProps) {
   return (
     <Select.ItemText asChild>
-      <span className="flex items-center gap-2 leading-5">{children}</span>
+      <span className="flex items-center gap-2 text-left leading-5">
+        {children}
+      </span>
     </Select.ItemText>
   )
 }
