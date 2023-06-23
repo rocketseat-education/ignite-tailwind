@@ -22,13 +22,13 @@ interface FileInputContextType {
 
 const FileInputContext = createContext({} as FileInputContextType)
 
-export function Root({ multiple = false, ...props }: RootProps) {
-  const id = useId()
+export function Root({ multiple = false, id, ...props }: RootProps) {
+  const customId = useId()
   const [files, setFiles] = useState<File[]>([])
 
   return (
     <FileInputContext.Provider
-      value={{ id, files, multiple, onFilesSelected: setFiles }}
+      value={{ id: id ?? customId, files, multiple, onFilesSelected: setFiles }}
     >
       <div {...props} className={twMerge('group w-full', props.className)} />
     </FileInputContext.Provider>

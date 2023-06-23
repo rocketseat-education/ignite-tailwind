@@ -98,7 +98,10 @@ export default function Home() {
               This will be displayed on your profile.
             </span>
           </label>
-          <FileInput.Root className="flex flex-col items-start gap-5 lg:flex-row">
+          <FileInput.Root
+            id="photo"
+            className="flex flex-col items-start gap-5 lg:flex-row"
+          >
             <FileInput.ImagePreview />
             <FileInput.Trigger />
             <FileInput.Control accept="image/*" />
@@ -123,25 +126,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid gap-3 pt-5 lg:grid-cols-form">
-          <label
-            htmlFor="country"
-            className="flex flex-col text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-100"
-          >
+        <label className="grid gap-3 pt-5 lg:grid-cols-form">
+          <span className="flex flex-col text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-100">
             Country
-          </label>
+          </span>
 
           <CountrySelect />
-        </div>
+        </label>
 
-        <div className="grid gap-3 pt-5 lg:grid-cols-form">
-          <label
-            htmlFor="timezone"
-            className="flex flex-col text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-100"
-          >
+        <label className="grid gap-3 pt-5 lg:grid-cols-form">
+          <span className="flex flex-col text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-100">
             Timezone
-          </label>
-          <Select.Root>
+          </span>
+          <Select.Root name="timezone">
             <Select.Trigger>
               <Select.Value placeholder="Select your timezone..." />
             </Select.Trigger>
@@ -155,7 +152,7 @@ export default function Home() {
               </Select.Item>
             </Select.Content>
           </Select.Root>
-        </div>
+        </label>
 
         <div className="grid gap-3 pt-5 lg:grid-cols-form">
           <label
@@ -214,7 +211,7 @@ export default function Home() {
 
         <div className="grid gap-3 pt-5 lg:grid-cols-form">
           <label
-            htmlFor="bio"
+            htmlFor="projects"
             className="flex flex-col text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-100"
           >
             Portfolio projects
@@ -222,7 +219,7 @@ export default function Home() {
               Share a few snippets of your work.
             </span>
           </label>
-          <FileInput.Root multiple>
+          <FileInput.Root id="projects" multiple>
             <FileInput.Trigger />
             <FileInput.FileList />
             <FileInput.Control />

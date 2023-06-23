@@ -25,7 +25,7 @@ export function Sidebar() {
       <Collapsible.Content
         asChild
         forceMount
-        className="data-[state=closed]:hidden lg:data-[state=closed]:flex"
+        className="data-[state=closed]:hidden data-[state=closed]:animate-slideUpAndFade data-[state=open]:animate-slideDownAndFade lg:data-[state=closed]:flex"
       >
         <div className="flex flex-1 flex-col gap-6">
           <Input.Root className="mx-1 w-auto">
