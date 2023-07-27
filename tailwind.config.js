@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        app: '700px'
+      },
+
       colors: {
         diego: '#333'
       }
