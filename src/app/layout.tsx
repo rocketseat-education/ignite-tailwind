@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="grid min-h-screen grid-cols-app">
           <Sidebar />
-          <main className="px-4 pb-12 pt-8">{children}</main>
+          <main className="px-8 pb-12 pt-8">{children}</main>
         </div>
       </body>
     </html>
